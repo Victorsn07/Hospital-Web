@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Icon } from '@visurel/iconify-angular';
 
 @Component({
   selector: 'vex-medicos',
@@ -24,10 +22,10 @@ export class MedicosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  apagar(){
+  apagar(): void{
     alert('apagado')
   }
-  editar(){
+  editar(): void{
     alert('editado')
   }
 }
