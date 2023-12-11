@@ -1,1 +1,55 @@
-<p>medicos works!</p>
+<vex-page-layout mode="simple">
+  <vex-page-layout-header class="leg" fxLayout="column" fxLayoutAlign="right start">
+    <div vexContainer>
+      <h2 id="titulo" class="title m-10 "> Medicos </h2>
+    </div>
+  </vex-page-layout-header>
+  <vex-page-layout-content vexContainer>
+    <div class="simple example-container mat-elevation-z8">
+
+      <table mat-table [dataSource]="dataSource"
+        aria-label="tabela dos medicos">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="numeroCRM">
+          <th mat-header-cell *matHeaderCellDef> numeroCRM </th>
+          <td mat-cell *matCellDef="let element"> {{element.numeroCRM}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="especializacao">
+          <th mat-header-cell *matHeaderCellDef> especializacao </th>
+          <td mat-cell *matCellDef="let element"> {{element.especializacao}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="pacientes">
+          <th mat-header-cell *matHeaderCellDef> pacientes </th>
+          <td mat-cell *matCellDef="let element"> {{element.pacientes}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="icon">
+          <th mat-header-cell *matHeaderCellDef> acoes </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="apagar()">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editar()">
+                <mat-icon>search</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>
