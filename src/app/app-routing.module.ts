@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: CustomLayoutComponent,
-    children: []
+    children: [
+      {
+        path: 'medicos',
+        loadChildren: () => import('./views/pages/medicos/medicos.module').then(m => m.MedicosModule)
+      },
+      {
+        path: 'pacientes',
+        loadChildren: () => import('./views/pages/pacientes/pacientes.module').then(m => m.PacientesModule)
+      }
+    ]
   }
 ];
 

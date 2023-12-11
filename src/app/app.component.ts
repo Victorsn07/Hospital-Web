@@ -1,3 +1,9 @@
+import  icReceipt  from '@iconify/icons-ic/twotone-receipt';
+import  icPersonAdd  from '@iconify/icons-ic/twotone-person-add';
+import icHelp  from '@iconify/icons-ic/help-outline';
+import  icVerifiedUser  from '@iconify/icons-ic/twotone-verified-user';
+import  icPerson  from '@iconify/icons-ic/twotone-person';
+import  icBookmarks  from '@iconify/icons-ic/twotone-bookmarks';
 import { Component, Inject, LOCALE_ID, Renderer2 } from '@angular/core';
 import { ConfigService } from '../@vex/services/config.service';
 import { Settings } from 'luxon';
@@ -79,9 +85,21 @@ export class AppComponent {
     this.navigationService.items = [
       {
         type: 'link',
-        label: 'Dashboard',
+        label: 'Home',
         route: '/',
         icon: icLayers
+      },
+      {
+        type: 'link',
+        label: 'Medicos',
+        route: '/medicos',
+        icon: icPerson
+      },
+      {
+        type: 'link',
+        label: 'Pacientes',
+        route: '/pacientes',
+        icon: icReceipt
       }
     ];
   }

@@ -8,19 +8,25 @@ import { VexModule } from '../@vex/vex.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomLayoutModule } from './views/custom-layout/custom-layout.module';
 import { MaterialModule } from 'src/app/core/modules/material.module'
+import { LibVexModule } from './core/modules/lib-vex.module';
+import { MedicosModule } from './views/pages/medicos/medicos.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    LibVexModule,
+    MedicosModule,
 
     // Vex
     VexModule,
-    CustomLayoutModule
+    CustomLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
