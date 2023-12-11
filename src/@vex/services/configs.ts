@@ -9,8 +9,8 @@ const defaultConfig: Config = {
   layout: 'horizontal',
   boxed: false,
   sidenav: {
-    title: 'VEX',
-    imageUrl: 'assets/img/demo/logo.svg',
+    title: 'Hospital Web',
+    imageUrl: 'assets/img/demo/Hospital.png',
     showCollapsePin: true,
     state: 'expanded'
   },
@@ -58,7 +58,7 @@ export const configs: Config[] = [
   mergeDeep({ ...defaultConfig }, {
     id: ConfigName.zeus,
     name: 'Zeus',
-    imgSrc: '//vex-landing.visurel.com/assets/img/layouts/zeus.png',
+    imgSrc: '//src/assets/img/cropped-Digital-Hospital-Logo-FavIcon-2.png',
     sidenav: {
       state: 'collapsed'
     },

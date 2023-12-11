@@ -11,7 +11,7 @@
   --padding-8: 0.5rem;
   --padding-4: 0.25rem;
 
-  --color-primary: 12, 119, 165;
+  --color-primary: 12, 255, 165;
   --color-primary-contrast: 255, 255, 255;
 
   --color-accent: 255, 64, 129;
@@ -117,8 +117,8 @@
 
   // Toolbar
   --toolbar-height: 64px;
-  --toolbar-background: white;
-  --toolbar-color: #{$dark-primary-text};
+  --toolbar-background: rgb(45, 80, 72);
+  --toolbar-color: white;
   --toolbar-icon-color: rgb(var(--color-primary));
 
   // Secondary Toolbar
