@@ -10,10 +10,14 @@ import { CustomLayoutModule } from './views/custom-layout/custom-layout.module';
 import { MaterialModule } from 'src/app/core/modules/material.module'
 import { LibVexModule } from './core/modules/lib-vex.module';
 import { MedicosModule } from './views/pages/medicos/medicos.module';
+import { CadastrarEditarPacientesComponent } from './core/constants/modais/pacientes/cadastrar-editar-pacientes/cadastrar-editar-pacientes.component';
+import { CadastrarEditarMedicosComponent } from './core/constants/modais/medicos/cadastrar-editar-medicos/cadastrar-editar-medicos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CadastrarEditarPacientesComponent,
+    CadastrarEditarMedicosComponent,
   ],
   imports: [
     BrowserModule,
