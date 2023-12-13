@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class MedicosComponent implements OnInit {
 
   displayedColumns =
-    [
-      'numeroCRM',
-      'nome',
-      'especializacao',
-      'pacientes',
-      'icon'
-    ];
+  [
+    'numeroCRM',
+    'nome',
+    'especializacao',
+    'pacientes',
+    'icon'
+  ];
   dataSource = ELEMENT_DATA;
 
   constructor() { }
@@ -27,6 +27,15 @@ export class MedicosComponent implements OnInit {
   }
   editar(): void{
     alert('editado')
+  }
+  filtrarProdutos() {
+  throw new Error('Method not implemented.');
+  }
+  abrirModalCadastrar() {
+  throw new Error('Method not implemented.');
+  }
+  limparFiltro() {
+  throw new Error('Method not implemented.');
   }
 }
 

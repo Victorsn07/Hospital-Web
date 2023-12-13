@@ -6,8 +6,8 @@
   font-size: 25pt;
 }
 .example-container {
-  height: 400px;
-  width: 70%;
+  height: 300px;
+  width: 99%;
   overflow: auto;
 }
 
@@ -20,3 +20,26 @@ table {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.icons{
+  margin: 19px;
+}
+.filtro{
+  width: 100%;
+}
+.inptPesq{
+  width: 60%;
+}
+// .btns{
+//   display: block;
+//   justify-content: space-between;
+//   width: 40%;
+//   float: right;
+//   .btnLim{
+//     width: 50%;
+//   }
+//   .btnAdd{
+//     width: 50%;
+
+//   }
+// }
