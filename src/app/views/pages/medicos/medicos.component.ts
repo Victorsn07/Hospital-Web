@@ -66,7 +66,7 @@ export class MedicosComponent implements OnInit {
     });
   }
 
-  apagar(medico?: Medico): void {
+  apagarMedico(medico?: Medico): void {
     this.medicosService.apagarMedico(medico.id).subscribe(
       () => {
         this.buscarMedicos();

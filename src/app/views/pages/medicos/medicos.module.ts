@@ -5,7 +5,6 @@ import { MedicosRoutingModule } from './medicos-routing.module';
 import { MedicosComponent } from './medicos.component';
 import { LibVexModule } from "../../../core/modules/lib-vex.module";
 import { MaterialModule } from 'src/app/core/modules/material.module';
-import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
         MedicosRoutingModule,
         LibVexModule,
         MaterialModule,
-        MatIconModule
     ]
 })
 export class MedicosModule { }

@@ -1,9 +1,5 @@
 import  icReceipt  from '@iconify/icons-ic/twotone-receipt';
-import  icPersonAdd  from '@iconify/icons-ic/twotone-person-add';
-import icHelp  from '@iconify/icons-ic/help-outline';
-import  icVerifiedUser  from '@iconify/icons-ic/twotone-verified-user';
 import  icPerson  from '@iconify/icons-ic/twotone-person';
-import  icBookmarks  from '@iconify/icons-ic/twotone-bookmarks';
 import { Component, Inject, LOCALE_ID, Renderer2 } from '@angular/core';
 import { ConfigService } from '../@vex/services/config.service';
 import { Settings } from 'luxon';
