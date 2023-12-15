@@ -1,9 +1,11 @@
 <vex-page-layout mode="simple">
+
   <vex-page-layout-header class="leg" fxLayout="column" fxLayoutAlign="right start">
     <div vexContainer>
       <h2 id="titulo" class="title m-10 "> Medicos </h2>
     </div>
   </vex-page-layout-header>
+
   <vex-page-layout-content vexContainer>
 
     <div class="row" [formGroup]="form">
@@ -14,12 +16,12 @@
           <input matInput formControlName="filtro" (change)="filtrarProdutos()" />
         </mat-form-field>
       </div>
-      <div class="col-md-3">
+      <div class="col">
         <button style="background-color: #262B39; color: rgb(240, 255, 255);" mat-button fxFlex="grow"
           (click)="limparFiltro()">Limpar
           <mat-icon>backspace</mat-icon></button>
       </div>
-      <div class="col-md-3">
+      <div class="col">
         <button mat-button mat-raised-button color="primary" (click)="abrirModalCadastrarEditar()" fxFlex="grow">
           Adicionar <mat-icon>add</mat-icon>
         </button>

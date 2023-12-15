@@ -5,5 +5,5 @@ export class Paciente {
   dtCriacao: any;
   telefone: number;
   dtNascimento: any;
-  endereco: any;
+  endereco: string;
 }

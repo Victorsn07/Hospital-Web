@@ -27,6 +27,7 @@ export class ToolbarUserComponent implements OnInit {
       content: ToolbarUserDropdownComponent,
       origin: originRef,
       offsetY: 12,
+      offsetX: -70,
       position: [
         {
           originX: 'center',
