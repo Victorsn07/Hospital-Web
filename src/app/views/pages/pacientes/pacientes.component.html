@@ -71,7 +71,7 @@
       <ng-container matColumnDef="icon">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let paciente">
-          <button class="icons" mat-icon-button (click)="apagarPacientes()">
+          <button class="icons" mat-icon-button (click)="abrirModalApagar(paciente)">
             <mat-icon>delete</mat-icon>
           </button>
           <button class="icons" mat-icon-button (click)="abrirModalCadastrarEditar()">

@@ -1,12 +1,10 @@
 <div class="form">
-
   <!-- Titulo do modal -->
   <div class="px-6 py-4 border-b" id="title" fxLayuout="row" fxLayoutAlign="start center">
     <h2 class="title m-0">Pacientes</h2>
   </div>
   <form (ngSubmit)="cadastrarEditarPacientes()" [formGroup]="form" #formDir="ngForm" class="example-form">
     <mat-dialog-content>
-
       <div class="dualInp">
         <!-- Paciente -->
         <div class="paciente" >
@@ -29,6 +27,7 @@
           </mat-form-field>
         </div>
       </div>
+      <!-- Data de Criacao -->
       <div class="dtCriacao">
         <mat-form-field class="example-full-width" id="inpt" appearance="standard">
           <mat-label class="dtCriacao"> Data Criacao </mat-label>
@@ -38,6 +37,7 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <!-- Data de nascimento -->
       <div class="dtNascimento">
         <mat-form-field class="example-full-width" id="inpt" appearance="standard">
           <mat-label class="enderdtNascimentoeco"> Data Nascimento </mat-label>
@@ -47,6 +47,7 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <!-- Telefone -->
       <div class="telefone">
         <mat-form-field class="example-full-width" id="inpt" appearance="standard">
           <mat-label class="telefone"> Telefone </mat-label>

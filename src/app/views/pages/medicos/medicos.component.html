@@ -46,32 +46,32 @@
       <!-- Nome -->
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef> Nome Medico </th>
-        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        <td mat-cell *matCellDef="let medico"> {{medico.nome}} </td>
       </ng-container>
 
       <!-- Especializacao -->
       <ng-container matColumnDef="especializacao">
         <th mat-header-cell *matHeaderCellDef> Especialização </th>
-        <td mat-cell *matCellDef="let element"> {{element.especializacao}} </td>
+        <td mat-cell *matCellDef="let medico"> {{medico.especializacao}} </td>
       </ng-container>
 
       <!-- Endereco -->
       <ng-container matColumnDef="endereco">
         <th mat-header-cell *matHeaderCellDef> Endereço </th>
-        <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
+        <td mat-cell *matCellDef="let medico"> {{medico.endereco}} </td>
       </ng-container>
 
       <!-- Pacientes -->
       <ng-container matColumnDef="pacientes">
         <th mat-header-cell *matHeaderCellDef> Pacientes </th>
-        <td mat-cell *matCellDef="let element"> {{element.pacientes}} </td>
+        <td mat-cell *matCellDef="let medico"> {{medico.pacientes}} </td>
       </ng-container>
 
       <!-- Icons -->
       <ng-container matColumnDef="icon">
         <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <button class="icons" mat-icon-button (click)="apagarMedico()">
+        <td mat-cell *matCellDef="let medico">
+          <button class="icons" mat-icon-button (click)="abrirModalApagar(medico)">
             <mat-icon>delete</mat-icon>
           </button>
           <button class="icons" mat-icon-button (click)="abrirModalCadastrarEditar()">

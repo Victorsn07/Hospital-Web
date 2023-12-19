@@ -1,4 +1,4 @@
-import { MedicosService } from './../../../../service/medicos/medicos.service';
+import { MedicosService } from 'src/app/core/service/medicos/medicos.service';
 import { Component, Inject, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';

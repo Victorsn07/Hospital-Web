@@ -1,4 +1,4 @@
-// import { Paciente } from "./pacientes";
+import { Paciente } from "./pacientes";
 export class Medico {
   id: number;
   nome: string;

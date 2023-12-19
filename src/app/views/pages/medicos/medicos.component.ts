@@ -1,10 +1,11 @@
 import { MedicosService } from './../../../core/service/medicos/medicos.service';
 import { Medico } from 'src/app/core/model/medicos';
 import { Component, OnInit } from '@angular/core';
-import { CadastrarEditarMedicosComponent } from 'src/app/core/constants/modais/medicos/cadastrar-editar-medicos/cadastrar-editar-medicos.component';
+import { CadastrarEditarMedicosComponent } from 'src/app/core/constants/modais/cadastrar-editar-medicos/cadastrar-editar-medicos.component';
 import { MatDialog } from '@angular/material/dialog'
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ModalConfirmacaoComponent } from 'src/app/core/constants/modais/modal-confirmacao/modal-confirmacao.component';
 
 @Component({
   selector: 'vex-medicos',
@@ -67,7 +68,22 @@ export class MedicosComponent implements OnInit {
     });
   }
 
-  apagarMedico(medico?: Medico): void {
+  abrirModalApagar(medico: Medico): void {
+    const dialogFef = this.dialog.open(ModalConfirmacaoComponent, {
+      data: {
+        itens: [medico.nome],
+
+      }
+    });
+
+    dialogFef.afterClosed().subscribe(result => {
+      if (result) {
+        this.apagarMedico(medico)
+      }
+    });
+  }
+
+  apagarMedico(medico: Medico): void {
     this.medicosService.apagarMedico(medico.id).subscribe(
       () => {
         this.buscarMedicos();

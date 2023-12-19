@@ -19,20 +19,19 @@ export class CadastrarEditarPacientesComponent {
 
   constructor(
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-    private pacienteService: PacientesService,
+    private pacientesService: PacientesService,
     private readonly dialogRef: MatDialogRef<CadastrarEditarPacientesComponent>,
     private readonly fb: FormBuilder,
     private snackbar: MatSnackBar
   ) {
-    this.cadastro = !data.medico;
+    this.cadastro = !data.paciente;
     this.legendaBotao = this.cadastro ? "Adicionar" : "Confirmar";
     this.form = this.fb.group({
       nomePaciente: [data?.paciente?.nome, [Validators.required]],
-      CPF: [data?.paciente?.cpf, [Validators.required]],
+      numeroCPF: [data?.paciente?.cpf, [Validators.required]],
       dtCriacao: [data?.paciente?.dtCriacao, [Validators.required]],
       dtNascimento: [data?.paciente?.dtNascimento, [Validators.required]],
       telefone: [data?.paciente?.telefone, [Validators.required]],
-      endereco: [data?.paciente?.endereco, [Validators.required]],
     })
    }
 
@@ -43,7 +42,7 @@ export class CadastrarEditarPacientesComponent {
 
    cadastrarPaciente() {
     this.paciente = this.form.value;
-    this.pacienteService.cadastrarPaciente(this.form.value).subscribe(() => {
+    this.pacientesService.cadastrarPaciente(this.form.value).subscribe(() => {
       this.dialogRef.close(true);
       this.snackbar.open(
         'Foi cadastrado um novo Paciente'
@@ -60,7 +59,7 @@ export class CadastrarEditarPacientesComponent {
     editarPaciente(): void {
       this.paciente = this.form.value;
       this.paciente.id = this.data?.medico?.id;
-      this.pacienteService.editarPacientes(this.paciente).subscribe(() =>{
+      this.pacientesService.editarPacientes(this.paciente).subscribe(() =>{
         console.log(this.form.value);
         this.dialogRef.close(true);
         this.snackbar.open(

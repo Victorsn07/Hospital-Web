@@ -11,8 +11,8 @@ import { MaterialModule } from 'src/app/core/modules/material.module'
 import { LibVexModule } from './core/modules/lib-vex.module';
 import { MedicosModule } from './views/pages/medicos/medicos.module';
 import { PacientesModule } from './views/pages/pacientes/pacientes.module';
-import { CadastrarEditarMedicosModule } from './core/constants/modais/medicos/cadastrar-editar-medicos/cadastrar-editar-medicos.module';
-import { CadastrarEditarPacientesModule } from './core/constants/modais/pacientes/cadastrar-editar-pacientes/cadastrar-editar-pacientes.module';
+import { CadastrarEditarMedicosModule } from './core/constants/modais/cadastrar-editar-medicos/cadastrar-editar-medicos.module';
+import { CadastrarEditarPacientesModule } from './core/constants/modais/cadastrar-editar-pacientes/cadastrar-editar-pacientes.module';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,8 @@ import { CadastrarEditarPacientesModule } from './core/constants/modais/paciente
     LibVexModule,
     MedicosModule,
     PacientesModule,
-    CadastrarEditarMedicosModule,
     CadastrarEditarPacientesModule,
+    CadastrarEditarMedicosModule,
 
     // Vex
     VexModule,
