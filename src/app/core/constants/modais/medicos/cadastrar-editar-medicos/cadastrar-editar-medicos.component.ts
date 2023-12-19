@@ -1,7 +1,8 @@
 import { MedicosService } from './../../../../service/medicos/medicos.service';
 import { Component, Inject, Optional } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Medico } from 'src/app/core/model/medicos';
 
 @Component({
@@ -14,19 +15,22 @@ export class CadastrarEditarMedicosComponent {
   form: FormGroup;
   cadastro!: boolean;
   medico = new Medico();
+  legendaBotao: string = '';
 
   constructor(
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     private medicosService: MedicosService,
     private readonly dialogRef: MatDialogRef<CadastrarEditarMedicosComponent>,
     private readonly fb: FormBuilder,
+    private snackbar: MatSnackBar
   ) {
     this.cadastro = !data.medico;
+    this.legendaBotao = this.cadastro ? "Adicionar" : "Confirmar";
     this.form = this.fb.group({
-      nome: [data?.medico?.nome],
-      endereco: [data?.medico?.endereco],
-      numeroCRM: [data?.medico?.numeroCRM],
-      especializacao: [data?.medico?.especializacao],
+      nomeMedico: [data?.medico?.nome, [Validators.required]],
+      numeroCRM: [data?.medico?.numeroCRM, [Validators.required]],
+      especializacao: [data?.medico?.especializacao, [Validators.required]],
+      endereco: [data?.medico?.endereco, [Validators.required]],
       pacientes: [data?.medico?.pacientes]
     })
    }
@@ -40,21 +44,33 @@ export class CadastrarEditarMedicosComponent {
     this.medico = this.form.value;
     this.medicosService.cadastrarMedico(this.form.value).subscribe(() => {
       this.dialogRef.close(true);
+      this.snackbar.open(
+        'Foi cadastrado um novo Medico'
+      )
     },
     (error) => {
-      console.log(error)
-    })
-  }
-
-  editarMedico(): void {
-    this.medico = this.form.value;
-    this.medico.id = this.data?.medico?.id;
-    this.medicosService.editarMedico(this.medico).subscribe(() =>{
-      console.log(this.form.value);
-      this.dialogRef.close(true);
-    },
-    (error) =>{
       console.log(error);
-    })
-  }
+      this.snackbar.open(
+        "Erro ao cadastrar um novo Medico",
+        )
+      })
+    }
+
+    editarMedico(): void {
+      this.medico = this.form.value;
+      this.medico.id = this.data?.medico?.id;
+      this.medicosService.editarMedico(this.medico).subscribe(() =>{
+        console.log(this.form.value);
+        this.dialogRef.close(true);
+        this.snackbar.open(
+          'Medico foi editado'
+          )
+        },
+        (error) =>{
+          console.log(error);
+          this.snackbar.open(
+            "Erro ao editar um Medico",
+            )
+        })
+      }
 }

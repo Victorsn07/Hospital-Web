@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PacientesRoutingModule } from './pacientes-routing.module';
 import { PacientesComponent } from './pacientes.component';
+import { LibVexModule } from 'src/app/core/modules/lib-vex.module';
+import { MaterialModule } from 'src/app/core/modules/material.module';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { PacientesComponent } from './pacientes.component';
   ],
   imports: [
     CommonModule,
-    PacientesRoutingModule
+    PacientesRoutingModule,
+    LibVexModule,
+    MaterialModule
   ]
 })
 export class PacientesModule { }

@@ -1,15 +1,77 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Paciente } from 'src/app/core/model/pacientes';
+import { PacientesService } from 'src/app/core/service/pacientes/pacientes.service';
 
 @Component({
   selector: 'vex-cadastrar-editar-pacientes',
   templateUrl: './cadastrar-editar-pacientes.component.html',
   styleUrls: ['./cadastrar-editar-pacientes.component.scss']
 })
-export class CadastrarEditarPacientesComponent implements OnInit {
+export class CadastrarEditarPacientesComponent {
 
-  constructor() { }
+  form: FormGroup;
+  cadastro!: boolean;
+  paciente = new Paciente();
+  legendaBotao: string = '';
 
-  ngOnInit(): void {
-  }
+  constructor(
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    private pacienteService: PacientesService,
+    private readonly dialogRef: MatDialogRef<CadastrarEditarPacientesComponent>,
+    private readonly fb: FormBuilder,
+    private snackbar: MatSnackBar
+  ) {
+    this.cadastro = !data.medico;
+    this.legendaBotao = this.cadastro ? "Adicionar" : "Confirmar";
+    this.form = this.fb.group({
+      nomePaciente: [data?.paciente?.nome, [Validators.required]],
+      CPF: [data?.paciente?.cpf, [Validators.required]],
+      dtCriacao: [data?.paciente?.dtCriacao, [Validators.required]],
+      dtNascimento: [data?.paciente?.dtNascimento, [Validators.required]],
+      telefone: [data?.paciente?.telefone, [Validators.required]],
+      endereco: [data?.paciente?.endereco, [Validators.required]],
+    })
+   }
 
+   cadastrarEditarPacientes() {
+    this.cadastro ? this.cadastrarPaciente() : this.editarPaciente();
+   }
+
+
+   cadastrarPaciente() {
+    this.paciente = this.form.value;
+    this.pacienteService.cadastrarPaciente(this.form.value).subscribe(() => {
+      this.dialogRef.close(true);
+      this.snackbar.open(
+        'Foi cadastrado um novo Paciente'
+      )
+    },
+    (error) => {
+      console.log(error);
+      this.snackbar.open(
+        "Erro ao cadastrar um novo Paciente",
+        )
+      })
+    }
+
+    editarPaciente(): void {
+      this.paciente = this.form.value;
+      this.paciente.id = this.data?.medico?.id;
+      this.pacienteService.editarPacientes(this.paciente).subscribe(() =>{
+        console.log(this.form.value);
+        this.dialogRef.close(true);
+        this.snackbar.open(
+          'Paciente foi editado'
+          )
+        },
+        (error) =>{
+          console.log(error);
+          this.snackbar.open(
+            "Erro ao editar um Paciente",
+            )
+        })
+      }
 }

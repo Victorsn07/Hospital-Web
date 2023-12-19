@@ -20,6 +20,7 @@ export class MedicosComponent implements OnInit {
       'numeroCRM',
       'nome',
       'especializacao',
+      'endereco',
       'pacientes',
       'icon'
     ];
@@ -78,7 +79,7 @@ export class MedicosComponent implements OnInit {
     )
   }
 
-  filtrarProdutos() {
+  filtrarMedicos() {
     throw new Error('Method not implemented.');
   }
 
