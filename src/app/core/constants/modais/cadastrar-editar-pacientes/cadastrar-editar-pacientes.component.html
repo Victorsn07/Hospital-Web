@@ -9,7 +9,7 @@
         <!-- Paciente -->
         <div class="paciente" >
           <mat-form-field class="example-full-width" id="inpN" appearance="standard">
-            <mat-label id="paciente"> Paciente </mat-label>
+            <mat-label id="nomePaciente"> Paciente </mat-label>
             <input formControlName="nomePaciente" matInput required/>
             <mat-error *ngIf="form.get('nomePaciente').hasError('required') && formDir.submitted">
               Preencha este campo!!!
@@ -40,7 +40,7 @@
       <!-- Data de nascimento -->
       <div class="dtNascimento">
         <mat-form-field class="example-full-width" id="inpt" appearance="standard">
-          <mat-label class="enderdtNascimentoeco"> Data Nascimento </mat-label>
+          <mat-label class="dtNascimento"> Data Nascimento </mat-label>
           <input formControlName="dtNascimento" matInput required/>
           <mat-error *ngIf="form.get('dtNascimento').hasError('required') && formDir.submitted">
             Preencha este campo!!!

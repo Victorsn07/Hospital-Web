@@ -15,7 +15,8 @@ import { ModalConfirmacaoComponent } from 'src/app/core/constants/modais/modal-c
 export class MedicosComponent implements OnInit {
 
   form: FormGroup;
-
+  dataSource = new MatTableDataSource<Medico>();
+  todosMedicos: Medico[] = [];
   displayedColumns: string[] =
     [
       'numeroCRM',
@@ -26,9 +27,6 @@ export class MedicosComponent implements OnInit {
       'icon'
     ];
 
-  dataSource = new MatTableDataSource<Medico>();
-
-  todosMedicos: Medico[] = [];
 
   constructor(
     public dialog: MatDialog,

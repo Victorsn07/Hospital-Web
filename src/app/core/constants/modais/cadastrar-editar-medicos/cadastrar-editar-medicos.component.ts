@@ -81,7 +81,7 @@ export class CadastrarEditarMedicosComponent {
   }
 
   private montarBody() {
-    let id = this.data?.produto?.id;
+    let id = this.data?.medico?.id;
     this.medico = this.form.value;
     this.medico.id = id;
   }

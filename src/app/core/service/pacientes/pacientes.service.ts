@@ -17,18 +17,18 @@ export class PacientesService {
   ) { }
 
   buscarPacientes(): Observable<Paciente[]> {
-    return this.http.get<Paciente[]>(`${this.API}/pacientes`);
+    return this.http.get<Paciente[]>(`${this.API}/paciente`);
   };
 
   apagarPacientes(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.API}pacientes?pacientes_ID=${id}`);
+    return this.http.delete<void>(`${this.API}paciente?paciente_ID=${id}`);
   };
 
   cadastrarPaciente(Paciente): Observable<Paciente[]> {
-    return this.http.post<Paciente[]>(`${this.API}/pacientes`, Paciente);
+    return this.http.post<Paciente[]>(`${this.API}/paciente`, Paciente);
   };
 
   editarPacientes(paciente: Paciente): Observable<Paciente[]> {
-    return this.http.put<Paciente[]>(`${this.API}/pacientes`, paciente).pipe(take(1));
+    return this.http.put<Paciente[]>(`${this.API}/paciente`, paciente).pipe(take(1));
   }
 }

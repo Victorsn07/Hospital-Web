@@ -19,8 +19,8 @@ export class PacientesComponent implements OnInit {
   todosPacientes: Paciente[] = [];
   displayedColumns: string[] =
     [
-      'nome',
-      'cpf',
+      'nomePaciente',
+      'numeroCPF',
       'dtCriacao',
       'dtNascimento',
       'telefone',
@@ -48,6 +48,9 @@ export class PacientesComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Paciente>(
           this.todosPacientes
         );
+      },
+      (error) => {
+        console.log(error);
       }
     )
   }
@@ -68,7 +71,7 @@ export class PacientesComponent implements OnInit {
   abrirModalApagar(paciente: Paciente): void {
     const dialogRef = this.dialog.open(ModalConfirmacaoComponent, {
       data: {
-        itens: [paciente.nome]
+        itens: [paciente.nomePaciente]
       }
     });
 
@@ -78,11 +81,11 @@ export class PacientesComponent implements OnInit {
       }
     });
   }
-  apagarPacientes(paciente?: Paciente): void {
+  apagarPacientes(paciente: Paciente): void {
     this.pacientesService.apagarPacientes(paciente.id).subscribe(
       () => {
         this.buscarPacientes();
-        alert('apagado');
+        alert('Paciente APAGADO');
       },
       (error) => {
         console.log(error);

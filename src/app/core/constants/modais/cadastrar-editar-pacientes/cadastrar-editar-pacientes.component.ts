@@ -13,7 +13,7 @@ import { PacientesService } from 'src/app/core/service/pacientes/pacientes.servi
 export class CadastrarEditarPacientesComponent {
 
   form: FormGroup;
-  cadastro!: boolean;
+  isCadastro!: boolean;
   paciente = new Paciente();
   legendaBotao: string = '';
 
@@ -24,11 +24,11 @@ export class CadastrarEditarPacientesComponent {
     private readonly fb: FormBuilder,
     private snackbar: MatSnackBar
   ) {
-    this.cadastro = !data.paciente;
-    this.legendaBotao = this.cadastro ? "Adicionar" : "Confirmar";
+    this.isCadastro = !data.paciente;
+    this.legendaBotao = this.isCadastro ? "Adicionar" : "Confirmar";
     this.form = this.fb.group({
-      nomePaciente: [data?.paciente?.nome, [Validators.required]],
-      numeroCPF: [data?.paciente?.cpf, [Validators.required]],
+      nomePaciente: [data?.paciente?.nomePaciente, [Validators.required]],
+      numeroCPF: [data?.paciente?.numeroCPF, [Validators.required]],
       dtCriacao: [data?.paciente?.dtCriacao, [Validators.required]],
       dtNascimento: [data?.paciente?.dtNascimento, [Validators.required]],
       telefone: [data?.paciente?.telefone, [Validators.required]],
@@ -36,7 +36,7 @@ export class CadastrarEditarPacientesComponent {
   }
 
   cadastrarEditarPacientes() {
-    this.cadastro ? this.cadastrarPaciente() : this.editarPaciente();
+    this.isCadastro ? this.cadastrarPaciente() : this.editarPaciente();
   }
 
 
@@ -47,7 +47,7 @@ export class CadastrarEditarPacientesComponent {
       this.snackbar.open(
         'Foi cadastrado um novo Paciente',
         'FECHAR',
-        { duration: 3000 }
+        { duration: 2000 }
       );
     },
       (error) => {
@@ -55,21 +55,20 @@ export class CadastrarEditarPacientesComponent {
         this.snackbar.open(
           "Erro ao cadastrar um novo Paciente",
           'FECHAR',
-          { duration: 3000 }
+          { duration: 2000 }
         );
       })
   }
 
   editarPaciente(): void {
-    this.paciente = this.form.value;
-    this.paciente.id = this.data?.medico?.id;
+    this.montarBody();
     this.pacientesService.editarPacientes(this.paciente).subscribe(() => {
       console.log(this.form.value);
       this.dialogRef.close(true);
       this.snackbar.open(
         'Paciente foi editado',
         'FECHAR',
-        { duration: 3000 }
+        { duration: 2000 }
       );
     },
       (error) => {
@@ -77,8 +76,14 @@ export class CadastrarEditarPacientesComponent {
         this.snackbar.open(
           "Erro ao editar um Paciente",
           'FECHAR',
-          { duration: 3000 }
+          { duration: 2000 }
         );
       })
+  }
+
+  private montarBody() {
+    let id = this.data?.paciente?.id;
+    this.paciente = this.form.value;
+    this.paciente.id = id;
   }
 }

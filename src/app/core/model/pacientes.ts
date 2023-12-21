@@ -1,9 +1,8 @@
 export class Paciente {
   id: number;
-  nome: string;
-  cpf: number;
-  dtCriacao: any;
+  nomePaciente: string;
+  numeroCPF: number;
+  dtCriacao: string;
+  dtNascimento: string;
   telefone: number;
-  dtNascimento: any;
-  endereco: string;
 }
