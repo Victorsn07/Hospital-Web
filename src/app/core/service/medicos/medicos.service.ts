@@ -9,6 +9,7 @@ import { take } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MedicosService {
+
   private readonly API = environment.url_api;
 
   constructor(

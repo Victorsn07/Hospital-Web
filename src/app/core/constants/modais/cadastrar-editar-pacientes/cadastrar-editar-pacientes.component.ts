@@ -63,7 +63,6 @@ export class CadastrarEditarPacientesComponent {
   editarPaciente(): void {
     this.montarBody();
     this.pacientesService.editarPacientes(this.paciente).subscribe(() => {
-      console.log(this.form.value);
       this.dialogRef.close(true);
       this.snackbar.open(
         'Paciente foi editado',
