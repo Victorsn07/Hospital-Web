@@ -1,7 +1,7 @@
-import { Paciente } from "./pacientes";
+// import { Paciente } from "./pacientes";
 export class Medico {
   id: number;
-  nome: string;
+  nomeMedico: string;
   endereco: string;
   numeroCRM: number;
   especializacao: string;

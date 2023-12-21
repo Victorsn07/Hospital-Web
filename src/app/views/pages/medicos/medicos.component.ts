@@ -19,7 +19,7 @@ export class MedicosComponent implements OnInit {
   displayedColumns: string[] =
     [
       'numeroCRM',
-      'nome',
+      'nomeMedico',
       'especializacao',
       'endereco',
       'pacientes',
@@ -36,7 +36,7 @@ export class MedicosComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.form = fb.group({
-
+      filtro: ['']
     })
   }
 
@@ -51,6 +51,9 @@ export class MedicosComponent implements OnInit {
         this.dataSource = new MatTableDataSource<Medico>(
           this.todosMedicos
         );
+      },
+      (error) => {
+        console.log(error);
       }
     )
   }
@@ -71,7 +74,7 @@ export class MedicosComponent implements OnInit {
   abrirModalApagar(medico: Medico): void {
     const dialogFef = this.dialog.open(ModalConfirmacaoComponent, {
       data: {
-        itens: [medico.nome],
+        itens: [medico.nomeMedico],
 
       }
     });
@@ -87,7 +90,7 @@ export class MedicosComponent implements OnInit {
     this.medicosService.apagarMedico(medico.id).subscribe(
       () => {
         this.buscarMedicos();
-        alert('apagado');
+        alert('Medico APAGADO');
       },
       (error) => {
         console.log(error);

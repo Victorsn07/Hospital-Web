@@ -13,7 +13,7 @@ import { Medico } from 'src/app/core/model/medicos';
 export class CadastrarEditarMedicosComponent {
 
   form: FormGroup;
-  cadastro!: boolean;
+  isCadastro!: boolean;
   medico = new Medico();
   legendaBotao: string = '';
 
@@ -24,20 +24,20 @@ export class CadastrarEditarMedicosComponent {
     private readonly fb: FormBuilder,
     private snackbar: MatSnackBar
   ) {
-    this.cadastro = !data.medico;
-    this.legendaBotao = this.cadastro ? "Adicionar" : "Confirmar";
+    this.isCadastro = !data.medico;
+    this.legendaBotao = this.isCadastro ? "Adicionar" : "Confirmar";
     this.form = this.fb.group({
-      nomeMedico: [data?.medico?.nome, [Validators.required]],
+      nomeMedico: [data?.medico?.nomeMedico, [Validators.required]],
       numeroCRM: [data?.medico?.numeroCRM, [Validators.required]],
       especializacao: [data?.medico?.especializacao, [Validators.required]],
       endereco: [data?.medico?.endereco, [Validators.required]],
       pacientes: [data?.medico?.pacientes]
     })
-   }
+  }
 
-   cadastrarEditarMedicos() {
-    this.cadastro ? this.cadastrarMedico() : this.editarMedico();
-   }
+  cadastrarEditarMedicos() {
+    this.isCadastro ? this.cadastrarMedico() : this.editarMedico();
+  }
 
 
   cadastrarMedico() {
@@ -45,32 +45,44 @@ export class CadastrarEditarMedicosComponent {
     this.medicosService.cadastrarMedico(this.form.value).subscribe(() => {
       this.dialogRef.close(true);
       this.snackbar.open(
-        'Foi cadastrado um novo Medico'
+        'Foi cadastrado um novo Medico',
+        "FECHAR",
+        { duration: 2000 }
       )
     },
-    (error) => {
-      console.log(error);
-      this.snackbar.open(
-        "Erro ao cadastrar um novo Medico",
+      (error) => {
+        console.log(error);
+        this.snackbar.open(
+          "Erro ao cadastrar um novo Medico",
+          "FECHAR",
+          { duration: 2000 }
         )
       })
-    }
+  }
 
-    editarMedico(): void {
-      this.medico = this.form.value;
-      this.medico.id = this.data?.medico?.id;
-      this.medicosService.editarMedico(this.medico).subscribe(() =>{
-        console.log(this.form.value);
-        this.dialogRef.close(true);
+  editarMedico(): void {
+    this.montarBody();
+    this.medicosService.editarMedico(this.medico).subscribe(() => {
+      this.dialogRef.close(true);
+      this.snackbar.open(
+        'Medico foi editado',
+        "FECHAR",
+        { duration: 2000 }
+      )
+    },
+      (error) => {
+        console.log(error);
         this.snackbar.open(
-          'Medico foi editado'
-          )
-        },
-        (error) =>{
-          console.log(error);
-          this.snackbar.open(
-            "Erro ao editar um Medico",
-            )
-        })
-      }
+          "Erro ao editar um Medico",
+          "FECHAR",
+          { duration: 2000 }
+        )
+      })
+  }
+
+  private montarBody() {
+    let id = this.data?.produto?.id;
+    this.medico = this.form.value;
+    this.medico.id = id;
+  }
 }

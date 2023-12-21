@@ -16,18 +16,18 @@ export class MedicosService {
   ) { }
 
   buscarMedicos(): Observable<Medico[]> {
-    return this.http.get<Medico[]>(`${this.API}/medicos`);
+    return this.http.get<Medico[]>(`${this.API}/medico`);
   };
 
   apagarMedico(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.API}/medicos?medico_ID=${id}`);
+    return this.http.delete<void>(`${this.API}/medico?medico_ID=${id}`);
   };
 
   cadastrarMedico(Medico): Observable<Medico[]> {
-    return this.http.post<Medico[]>(`${this.API}/medicos`, Medico);
+    return this.http.post<Medico[]>(`${this.API}/medico`, Medico);
   };
 
   editarMedico(medico: Medico): Observable<Medico[]> {
-    return this.http.put<Medico[]>(`${this.API}/medicos`, medico).pipe(take(1));
+    return this.http.put<Medico[]>(`${this.API}/medico`, medico).pipe(take(1));
   }
 }

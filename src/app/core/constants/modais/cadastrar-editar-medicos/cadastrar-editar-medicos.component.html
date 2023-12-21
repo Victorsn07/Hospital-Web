@@ -11,7 +11,7 @@
         <!-- Medico -->
         <div class="medico" >
           <mat-form-field class="example-full-width" id="inpN" appearance="standard">
-            <mat-label id="medico"> Medicos </mat-label>
+            <mat-label id="nomeMedico"> Medicos </mat-label>
             <input formControlName="nomeMedico" matInput required/>
             <mat-error *ngIf="form.get('nomeMedico').hasError('required') && formDir.submitted">
               Preencha este campo!!!

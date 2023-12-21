@@ -33,44 +33,52 @@ export class CadastrarEditarPacientesComponent {
       dtNascimento: [data?.paciente?.dtNascimento, [Validators.required]],
       telefone: [data?.paciente?.telefone, [Validators.required]],
     })
-   }
+  }
 
-   cadastrarEditarPacientes() {
+  cadastrarEditarPacientes() {
     this.cadastro ? this.cadastrarPaciente() : this.editarPaciente();
-   }
+  }
 
 
-   cadastrarPaciente() {
+  cadastrarPaciente() {
     this.paciente = this.form.value;
     this.pacientesService.cadastrarPaciente(this.form.value).subscribe(() => {
       this.dialogRef.close(true);
       this.snackbar.open(
-        'Foi cadastrado um novo Paciente'
-      )
+        'Foi cadastrado um novo Paciente',
+        'FECHAR',
+        { duration: 3000 }
+      );
     },
-    (error) => {
-      console.log(error);
-      this.snackbar.open(
-        "Erro ao cadastrar um novo Paciente",
-        )
-      })
-    }
-
-    editarPaciente(): void {
-      this.paciente = this.form.value;
-      this.paciente.id = this.data?.medico?.id;
-      this.pacientesService.editarPacientes(this.paciente).subscribe(() =>{
-        console.log(this.form.value);
-        this.dialogRef.close(true);
+      (error) => {
+        console.log(error);
         this.snackbar.open(
-          'Paciente foi editado'
-          )
-        },
-        (error) =>{
-          console.log(error);
-          this.snackbar.open(
-            "Erro ao editar um Paciente",
-            )
-        })
-      }
+          "Erro ao cadastrar um novo Paciente",
+          'FECHAR',
+          { duration: 3000 }
+        );
+      })
+  }
+
+  editarPaciente(): void {
+    this.paciente = this.form.value;
+    this.paciente.id = this.data?.medico?.id;
+    this.pacientesService.editarPacientes(this.paciente).subscribe(() => {
+      console.log(this.form.value);
+      this.dialogRef.close(true);
+      this.snackbar.open(
+        'Paciente foi editado',
+        'FECHAR',
+        { duration: 3000 }
+      );
+    },
+      (error) => {
+        console.log(error);
+        this.snackbar.open(
+          "Erro ao editar um Paciente",
+          'FECHAR',
+          { duration: 3000 }
+        );
+      })
+  }
 }

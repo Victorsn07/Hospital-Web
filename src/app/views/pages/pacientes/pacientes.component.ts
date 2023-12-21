@@ -33,6 +33,7 @@ export class PacientesComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.form = fb.group({
+      filtro: ['']
     })
   }
 
