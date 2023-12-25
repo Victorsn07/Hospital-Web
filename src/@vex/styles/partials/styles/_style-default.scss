@@ -11,7 +11,7 @@
   --padding-8: 0.5rem;
   --padding-4: 0.25rem;
 
-  --color-primary: 92, 119, 255;
+  --color-primary: 12, 230, 155;
   --color-primary-contrast: 255, 255, 255;
 
   --color-accent: 255, 64, 129;
@@ -95,7 +95,7 @@
 
   // Sidenav
   --sidenav-width: 280px;
-  --sidenav-collapsed-width: 72px;
+  --sidenav-collapsed-width: 75px;
   --sidenav-background: #{$sidenav-background};
   --sidenav-color: white;
 
@@ -103,9 +103,9 @@
   --sidenav-item-padding: var(--padding);
   --sidenav-toolbar-background: #{darken($sidenav-background, 1.5)};
   --sidenav-item-background-active: #{darken($sidenav-background, 3)};
-  --sidenav-item-color: #A1A2B6;
+  --sidenav-item-color: #b3b4c5;
   --sidenav-item-color-active: #{$light-primary-text};
-  --sidenav-item-icon-color: #494B74;
+  --sidenav-item-icon-color: #6d6f91;
   --sidenav-item-icon-color-active: rgb(var(--color-primary));
   --sidenav-item-icon-gap: 16px;
   --sidenav-item-icon-size: 24px;
@@ -117,8 +117,8 @@
 
   // Toolbar
   --toolbar-height: 64px;
-  --toolbar-background: white;
-  --toolbar-color: #{$dark-primary-text};
+  --toolbar-background: #024743;
+  --toolbar-color: white;
   --toolbar-icon-color: rgb(var(--color-primary));
 
   // Secondary Toolbar

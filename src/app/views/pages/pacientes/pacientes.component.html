@@ -1,0 +1,84 @@
+<vex-page-layout mode="simple">
+
+  <vex-page-layout-header class="leg" fxLayout="column" fxLayoutAlign="right start">
+    <div vexContainer>
+      <h2 id="titulo" class="title m-10 "> Pacientes </h2>
+    </div>
+  </vex-page-layout-header>
+
+  <vex-page-layout-content vexContainer>
+
+    <div class="row" [formGroup]="form">
+      <!-- FILTRO TABELA -->
+      <div class="col-md-8">
+        <mat-form-field class="inptPes" appearance="standard" fxFlex="grow">
+          <mat-label>Pesquisar Pacientes</mat-label>
+          <input matInput formControlName="filtro" (change)="filtrarPacientes()" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <button style="background-color: #262B39; color: rgb(240, 255, 255); height: 70%;" mat-button fxFlex="grow"
+          (click)="limparFiltro()">Limpar
+          <mat-icon>backspace</mat-icon></button>
+      </div>
+      <div class="col-md-2">
+        <button style=" height: 70%;" mat-button mat-raised-button color="primary" (click)="abrirModalCadastrarEditar()" fxFlex="grow">
+          Adicionar <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>
+
+<div style="margin-top: 2rem;">
+  <!-- TABELA -->
+  <div class="mat-elevation-z8">
+    <table aria-label="tabela dos pacientes" mat-table [dataSource]="dataSource">
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <!-- CPF -->
+      <ng-container matColumnDef="numeroCPF">
+        <th mat-header-cell *matHeaderCellDef> Numero CPF </th>
+        <td mat-cell *matCellDef="let paciente"> {{ paciente.numeroCPF }} </td>
+      </ng-container>
+
+      <!-- Nome -->
+      <ng-container matColumnDef="nomePaciente">
+        <th mat-header-cell *matHeaderCellDef> Nome Paciente </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.nomePaciente}} </td>
+      </ng-container>
+
+      <!-- Data Criação -->
+      <ng-container matColumnDef="dtCriacao">
+        <th mat-header-cell *matHeaderCellDef> Data Criação </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.dtCriacao}} </td>
+      </ng-container>
+
+      <!-- Data Nascimento -->
+      <ng-container matColumnDef="dtNascimento">
+        <th mat-header-cell *matHeaderCellDef> Data Nascimento </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.dtNascimento}} </td>
+      </ng-container>
+
+      <!-- Telefone -->
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef> telefone </th>
+        <td mat-cell *matCellDef="let paciente"> {{paciente.telefone}} </td>
+      </ng-container>
+
+      <!-- Icons -->
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let paciente">
+          <button class="icons" mat-icon-button (click)="abrirModalApagar(paciente)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button class="icons" mat-icon-button (click)="abrirModalCadastrarEditar(paciente)">
+            <mat-icon>editar</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    </table>
+  </div>
+</div>

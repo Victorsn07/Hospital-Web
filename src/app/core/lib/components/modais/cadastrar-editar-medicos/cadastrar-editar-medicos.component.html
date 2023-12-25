@@ -1,0 +1,66 @@
+<div class="form">
+
+  <!-- Titulo do modal -->
+  <div class="px-6 py-4 border-b" id="title" fxLayuout="row" fxLayoutAlign="start center">
+    <h2 class="title m-0">Medicos</h2>
+  </div>
+  <form (ngSubmit)="cadastrarEditarMedicos()" [formGroup]="form" #formDir="ngForm" class="example-form">
+    <mat-dialog-content>
+
+      <div class="dualInp">
+        <!-- Medico -->
+        <div class="medico" >
+          <mat-form-field class="example-full-width" id="inpN" appearance="standard">
+            <mat-label id="nomeMedico"> Medicos </mat-label>
+            <input formControlName="nomeMedico" matInput required/>
+            <mat-error *ngIf="form.get('nomeMedico').hasError('required') && formDir.submitted">
+              Preencha este campo!!!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!-- Numero CRM -->
+        <div class="numeroCRM">
+          <mat-form-field class="example-full-width" id="inpN" appearance="standard">
+            <mat-label id="numeroCRM"> Numero CRM </mat-label>
+            <input formControlName="numeroCRM" matInput required/>
+            <mat-error *ngIf="form.get('numeroCRM').hasError('required') && formDir.submitted">
+              Preencha este campo!!!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="especializacao">
+        <mat-form-field class="example-full-width" id="inpt" appearance="standard">
+          <mat-label class="especializacao"> Especializacao </mat-label>
+          <input formControlName="especializacao" matInput required/>
+          <mat-error *ngIf="form.get('especializacao').hasError('required') && formDir.submitted">
+            Preencha este campo!!!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="endereco">
+        <mat-form-field class="example-full-width" id="inpt" appearance="standard">
+          <mat-label class="endereco"> Endereco </mat-label>
+          <input formControlName="endereco" matInput required/>
+          <mat-error *ngIf="form.get('endereco').hasError('required') && formDir.submitted">
+            Preencha este campo!!!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="pacientes">
+        <mat-form-field class="example-full-width" id="inpt" appearance="standard">
+          <mat-label class="pacientes"> Pacientes </mat-label>
+          <input formControlName="pacientes" matInput required/>
+          <mat-error>
+            Preencha este campo!!!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancelar</button>
+        <button mat-button mat-raised-button color="primary">{{ legendaBotao }}</button>
+      </mat-dialog-actions>
+    </mat-dialog-content>
+  </form>
+</div>

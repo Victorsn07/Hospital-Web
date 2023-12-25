@@ -1,0 +1,195 @@
+{
+  "uuid": "c18f9845-5183-471c-a82d-515f7942587d",
+  "lastMigration": 28,
+  "name": "Hospital API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "eb162b46-5c72-40cf-a163-dd233f2a9467",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "medicos/filtro",
+      "responses": [
+        {
+          "uuid": "cb7efcf3-b31a-48c3-b0ba-308aa14658da",
+          "body": "[\r\n\t{\r\n\t\"id\": 1,\r\n\t\"nome\": \"DrLuiz\",\r\n\t\"endereco\": \"AvBrasil\",\r\n\t\"numeroCRM\": 123456,\r\n\t\"especializacao\": \"ginicologista\",\r\n\t\"pacientes\": [\r\n\t\t\"vitor\",\r\n\t\t\"pedro\",\r\n\t\t\"gabriel\"\r\n\t]\r\n},\r\n{\r\n\t\"id\": 2,\r\n\t\"nome\": \"DrCarlos\",\r\n\t\"endereco\": \"Avholanda\",\r\n\t\"numeroCRM\": 123456,\r\n\t\"especializacao\": \"cirurgiao\",\r\n\t\"pacientes\": [\r\n\t\t\"elias\",\r\n\t\t\"gustavo\",\r\n\t\t\"mateus\"\r\n\t]\r\n},\r\n{\r\n\t\"id\": 3,\r\n\t\"nome\": \"DrAdao\",\r\n\t\"endereco\": \"AvAlemanha\",\r\n\t\"numeroCRM\": 123456,\r\n\t\"especializacao\": \"obstetra\",\r\n\t\"pacientes\": [\r\n\t\t\"alberto\",\r\n\t\t\"paulo\",\r\n\t\t\"gabriel\"\r\n\t]\r\n}\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "af2af567-e404-4a75-91a9-23314f70fb1d",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "medico",
+      "responses": [
+        {
+          "uuid": "4d8f4540-5ebc-44ec-993f-3b3b952ea46e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "6mmv",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1b476e0b-7e30-4f50-b086-00a7f639072e",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "paciente",
+      "responses": [
+        {
+          "uuid": "8a9f3d00-3f8e-436b-b539-9d13e5ef0f8b",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "s6df",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "c94a87a0-0dad-4c11-bb2a-42ca53030734",
+          "body": "[\r\n{\r\n\t\"id\": 1,\r\n\t\"nomePaciente\": \"mateus\",\r\n\t\"numeroCPF\": 123456432,\r\n\t\"dtCriacao\": \"12-12-2024\",\r\n\t\"dtNascimento\": \"31-02-1999\",\r\n\t\"telefone\": 1233456432\r\n},\r\n{\r\n\t\"id\": 1,\r\n\t\"nomePaciente\": \"vitor\",\r\n\t\"numeroCPF\": 123456432,\r\n\t\"dtCriacao\": \"12-12-2024\",\r\n\t\"dtNascimento\": \"31-02-1999\",\r\n\t\"telefone\": 1233456432\r\n},\r\n{\r\n\t\"id\": 1,\r\n\t\"nomePaciente\": \"carlos\",\r\n\t\"numeroCPF\": \"123456432\",\r\n\t\"dtCriacao\": \"12-12-2024\",\r\n\t\"dtNascimento\": \"31-02-1999\",\r\n\t\"telefone\": \"1233456432\"\r\n}\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "af2af567-e404-4a75-91a9-23314f70fb1d"
+    },
+    {
+      "type": "route",
+      "uuid": "1b476e0b-7e30-4f50-b086-00a7f639072e"
+    },
+    {
+      "type": "route",
+      "uuid": "eb162b46-5c72-40cf-a163-dd233f2a9467"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "051ba3a7-e58d-4d9b-b0e2-fc982fa2774c",
+      "id": "6mmv",
+      "name": "medicos",
+      "documentation": "",
+      "value": "[\r\n  {{#repeat 4}}\r\n    {\r\n\t\"id\": 1,\r\n\t\"nomeMedico\": \"DrLuiz\",\r\n\t\"endereco\": \"AvBrasil\",\r\n\t\"numeroCRM\": 123456,\r\n\t\"especializacao\": \"ginicologista\",\r\n\t\"pacientes\": [\r\n\t\t\"vitor\",\r\n\t\t\"pedro\",\r\n\t\t\"gabriel\"\r\n\t]\r\n}\r\n    {{#unless @last}},{{/unless}}\r\n  {{/repeat}}\r\n]"
+    },
+    {
+      "uuid": "fe6653a4-4236-44d1-a7fa-6c08e3368ea5",
+      "id": "s6df",
+      "name": "pacientes",
+      "documentation": "",
+      "value": "[\r\n  {{#repeat 4}}\r\n    {\r\n\t\"id\": 1,\r\n\t\"nomePaciente\": \"mateus\",\r\n\t\"numeroCPF\": 123456432,\r\n\t\"dtCriacao\": \"12-12-2024\",\r\n\t\"dtNascimento\": \"31-02-1999\",\r\n\t\"telefone\": 1233456432\r\n}\r\n    {{#unless @last}},{{/unless}}\r\n  {{/repeat}}\r\n]"
+    }
+  ]
+}

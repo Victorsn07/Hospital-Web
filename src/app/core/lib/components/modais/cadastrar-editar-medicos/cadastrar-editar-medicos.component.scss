@@ -1,0 +1,27 @@
+.form{
+  padding: 5px;
+
+  #title{
+    margin-bottom: 15px;
+    font-size: 30pt;
+  }
+
+  #inpN {
+    width: 95%;
+  }
+  #inpt{
+    width: 100%;
+  }
+  .dualInp{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+    #medico{
+      width: 55%;
+    }
+    #numeroCRM{
+      width: 49%;
+    }
+  }
+}
