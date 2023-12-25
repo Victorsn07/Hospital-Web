@@ -30,5 +30,13 @@ export class MedicosService {
 
   editarMedico(medico: Medico): Observable<Medico[]> {
     return this.http.put<Medico[]>(`${this.API}/medico`, medico).pipe(take(1));
+  };
+
+  filtrarMedicos(campoFiltro: string): Observable<Medico[]> {
+    return this.http.get<Medico[]>(`${this.API}/medicos/filtro`, {
+      params: {
+        filtro: campoFiltro
+      }
+    }).pipe(take(1));
   }
 }

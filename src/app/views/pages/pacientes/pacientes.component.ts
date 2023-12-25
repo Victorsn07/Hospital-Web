@@ -94,9 +94,17 @@ export class PacientesComponent implements OnInit {
   }
 
   limparFiltro() {
-    throw new Error('Method not implemented.');
+    this.form.reset();
   }
+
   filtrarPacientes() {
-    throw new Error('Method not implemented.');
+    let formulario = this.form.value;
+    this.pacientesService.filtraPaciente(formulario.filtro).subscribe(response => {
+      this.todosPacientes = response;
+      this.dataSource = new MatTableDataSource<Paciente>(this.todosPacientes);
+    },
+    (error) => {
+      console.log(error)
+    });
   }
 }

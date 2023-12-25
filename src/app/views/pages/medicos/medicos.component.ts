@@ -97,10 +97,18 @@ export class MedicosComponent implements OnInit {
   }
 
   filtrarMedicos() {
-    throw new Error('Method not implemented.');
+    this.form.reset();
   }
 
   limparFiltro() {
-    throw new Error('Method not implemented.');
+    let formulario = this.form.value;
+    this.medicosService.filtrarMedicos(formulario.filtro).subscribe(response => {
+      this.todosMedicos = response;
+      this.dataSource = new MatTableDataSource<Medico>(this.todosMedicos);
+      console.log(response)
+    },
+    (error) => {
+      console.log(error)
+    });
   }
 }

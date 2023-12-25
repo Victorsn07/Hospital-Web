@@ -30,5 +30,13 @@ export class PacientesService {
 
   editarPacientes(paciente: Paciente): Observable<Paciente[]> {
     return this.http.put<Paciente[]>(`${this.API}/paciente`, paciente).pipe(take(1));
+  };
+
+  filtraPaciente(campoFiltro: string): Observable<Paciente[]> {
+    return this.http.get<Paciente[]>(`${this.API}/paciente/filtro`, {
+      params: {
+        filtro: campoFiltro
+      }
+    }).pipe(take(1));
   }
 }
