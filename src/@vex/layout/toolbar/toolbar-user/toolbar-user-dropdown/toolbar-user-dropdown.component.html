@@ -4,7 +4,7 @@
       <div class="dropdown-heading-icon" fxLayout="row" fxLayoutAlign="center center">
         <mat-icon [icIcon]="icPerson"></mat-icon>
       </div>
-      <div class="dropdown-heading">David Smith</div>
+      <div class="dropdown-heading">Hospital Dev Web</div>
     </div>
 
     <button [matMenuTriggerFor]="settingsMenu"
@@ -46,7 +46,7 @@
         </span>
       </ng-container>
     </button>
-    <a (click)="close()" [routerLink]="['/login']" color="primary" mat-button>LOGOUT</a>
+    <a (click)="close()" [routerLink]="['/login']" color="primary" mat-button>SAIR</a>
   </div>
 </div>
 
@@ -63,21 +63,21 @@
 <mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">
   <button mat-menu-item>
     <mat-icon [icIcon]="icBusiness"></mat-icon>
-    <span>Change Address</span>
+    <span>Alterar Endereços</span>
   </button>
 
   <button mat-menu-item>
     <mat-icon [icIcon]="icVerifiedUser"></mat-icon>
-    <span>Change Username</span>
+    <span>Alterar Nome</span>
   </button>
 
   <button mat-menu-item>
     <mat-icon [icIcon]="icLock"></mat-icon>
-    <span>Change Password</span>
+    <span>Alterar Senha</span>
   </button>
 
   <button mat-menu-item>
     <mat-icon [icIcon]="icNotificationsOff"></mat-icon>
-    <span>Disable Notifications</span>
+    <span>Desativar Notificações</span>
   </button>
 </mat-menu>

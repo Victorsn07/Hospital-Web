@@ -6,7 +6,6 @@ import { Settings } from 'luxon';
 import { DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { NavigationService } from '../@vex/services/navigation.service';
-import icLayers from '@iconify/icons-ic/twotone-layers';
 import { LayoutService } from '../@vex/services/layout.service';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -38,28 +37,6 @@ export class AppComponent {
     if (this.platform.BLINK) {
       this.renderer.addClass(this.document.body, 'is-blink');
     }
-
-    /**
-     * Customize the template to your needs with the ConfigService
-     * Example:
-     *  this.configService.updateConfig({
-     *    sidenav: {
-     *      title: 'Custom App',
-     *      imageUrl: '//placehold.it/100x100',
-     *      showCollapsePin: false
-     *    },
-     *    showConfigButton: false,
-     *    footer: {
-     *      visible: false
-     *    }
-     *  });
-     */
-
-    /**
-     * Config Related Subscriptions
-     * You can remove this if you don't need the functionality of being able to enable specific configs with queryParams
-     * Example: example.com/?layout=apollo&style=default
-     */
     this.route.queryParamMap.pipe(
       map(queryParamMap => queryParamMap.has('rtl') && coerceBooleanProperty(queryParamMap.get('rtl'))),
     ).subscribe(isRtl => {
@@ -77,14 +54,7 @@ export class AppComponent {
       filter(queryParamMap => queryParamMap.has('style'))
     ).subscribe(queryParamMap => this.styleService.setStyle(queryParamMap.get('style') as Style));
 
-
     this.navigationService.items = [
-      {
-        type: 'link',
-        label: 'Home',
-        route: '/',
-        icon: icLayers
-      },
       {
         type: 'link',
         label: 'Medicos',

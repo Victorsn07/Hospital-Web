@@ -5,8 +5,6 @@ import icPerson from '@iconify/icons-ic/twotone-person';
 import icSettings from '@iconify/icons-ic/twotone-settings';
 import icAccountCircle from '@iconify/icons-ic/twotone-account-circle';
 import icMoveToInbox from '@iconify/icons-ic/twotone-move-to-inbox';
-import icListAlt from '@iconify/icons-ic/twotone-list-alt';
-import icTableChart from '@iconify/icons-ic/twotone-table-chart';
 import icCheckCircle from '@iconify/icons-ic/twotone-check-circle';
 import icAccessTime from '@iconify/icons-ic/twotone-access-time';
 import icDoNotDisturb from '@iconify/icons-ic/twotone-do-not-disturb';
@@ -21,7 +19,7 @@ import { Icon } from '@visurel/iconify-angular';
 import { PopoverRef } from '../../../../components/popover/popover-ref';
 
 export interface OnlineStatus {
-  id: 'online' | 'away' | 'dnd' | 'offline';
+  id: 'online' | 'Ausente' | 'Indisponivel' | 'offline';
   label: string;
   icon: Icon;
   colorClass: string;
@@ -39,59 +37,43 @@ export class ToolbarUserDropdownComponent implements OnInit {
     {
       id: '1',
       icon: icAccountCircle,
-      label: 'My Profile',
-      description: 'Personal Information',
+      label: 'Perfil',
+      description: 'Informações Pessoais',
       colorClass: 'text-teal',
       route: '/apps/social'
     },
     {
       id: '2',
       icon: icMoveToInbox,
-      label: 'My Inbox',
-      description: 'Messages & Latest News',
+      label: 'Menssagens',
+      description: 'Messages & Ultimas notícias',
       colorClass: 'text-primary',
       route: '/apps/chat'
-    },
-    {
-      id: '3',
-      icon: icListAlt,
-      label: 'My Projects',
-      description: 'Tasks & Active Projects',
-      colorClass: 'text-amber',
-      route: '/apps/scrumboard'
-    },
-    {
-      id: '4',
-      icon: icTableChart,
-      label: 'Billing Information',
-      description: 'Pricing & Current Plan',
-      colorClass: 'text-purple',
-      route: '/pages/pricing'
     }
   ];
 
   statuses: OnlineStatus[] = [
     {
       id: 'online',
-      label: 'Online',
+      label: 'Aberto',
       icon: icCheckCircle,
       colorClass: 'text-green'
     },
     {
-      id: 'away',
-      label: 'Away',
+      id: 'Ausente',
+      label: 'Ausente',
       icon: icAccessTime,
       colorClass: 'text-orange'
     },
     {
-      id: 'dnd',
-      label: 'Do not disturb',
+      id: 'Indisponivel',
+      label: 'Indisponivel',
       icon: icDoNotDisturb,
       colorClass: 'text-red'
     },
     {
       id: 'offline',
-      label: 'Offline',
+      label: 'Fechado',
       icon: icOfflineBolt,
       colorClass: 'text-gray'
     }

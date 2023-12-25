@@ -1,11 +1,11 @@
 import { MedicosService } from './../../../core/service/medicos/medicos.service';
 import { Medico } from 'src/app/core/model/medicos';
 import { Component, OnInit } from '@angular/core';
-import { CadastrarEditarMedicosComponent } from 'src/app/core/constants/modais/cadastrar-editar-medicos/cadastrar-editar-medicos.component';
+import { CadastrarEditarMedicosComponent } from 'src/app/core/lib/components/modais/cadastrar-editar-medicos/cadastrar-editar-medicos.component';
 import { MatDialog } from '@angular/material/dialog'
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalConfirmacaoComponent } from 'src/app/core/constants/modais/modal-confirmacao/modal-confirmacao.component';
+import { ModalConfirmacaoComponent } from 'src/app/core/lib/components/modais/modal-confirmacao/modal-confirmacao.component';
 
 @Component({
   selector: 'vex-medicos',

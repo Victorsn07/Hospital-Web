@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { CadastrarEditarPacientesComponent } from 'src/app/core/constants/modais/cadastrar-editar-pacientes/cadastrar-editar-pacientes.component';
-import { ModalConfirmacaoComponent } from 'src/app/core/constants/modais/modal-confirmacao/modal-confirmacao.component';
+import { CadastrarEditarPacientesComponent } from 'src/app/core/lib/components/modais/cadastrar-editar-pacientes/cadastrar-editar-pacientes.component';
+import { ModalConfirmacaoComponent } from 'src/app/core/lib/components/modais/modal-confirmacao/modal-confirmacao.component';
 import { Paciente } from 'src/app/core/model/pacientes';
 
 @Component({
