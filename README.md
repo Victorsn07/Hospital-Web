@@ -18,7 +18,8 @@ Ultilizado como tema visual o [Vex Visurel](https://vex.visurel.com/).
 
 ## Instalações Necessarias
 
-moock API ultilizado no projeto [Mockoon](https://mockoon.com/)
-arquivo necessario para importação no mockoon para reaqlizar as requições - '/moock API/Hospital-API.json'
+Moock API ultilizado no projeto [Mockoon](https://mockoon.com/).
+
+Arquivo necessario para importação no mockoon para reaqlizar as requições - '/moock API/Hospital-API.json'.
 
 
