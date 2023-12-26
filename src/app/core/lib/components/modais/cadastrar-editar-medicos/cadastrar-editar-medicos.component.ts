@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Medico } from 'src/app/core/model/medicos';
+import { CommomService } from 'src/app/core/service/commom/commom.service';
+import { Endereco } from 'src/app/core/model/endereco';
 
 @Component({
   selector: 'vex-cadastrar-editar-medicos',
@@ -16,10 +18,12 @@ export class CadastrarEditarMedicosComponent {
   isCadastro!: boolean;
   medico = new Medico();
   legendaBotao: string = '';
+  endereco = new Endereco()
 
   constructor(
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     private medicosService: MedicosService,
+    private commomService: CommomService,
     private readonly dialogRef: MatDialogRef<CadastrarEditarMedicosComponent>,
     private readonly fb: FormBuilder,
     private snackbar: MatSnackBar
@@ -30,7 +34,10 @@ export class CadastrarEditarMedicosComponent {
       nomeMedico: [data?.medico?.nomeMedico, [Validators.required]],
       numeroCRM: [data?.medico?.numeroCRM, [Validators.required]],
       especializacao: [data?.medico?.especializacao, [Validators.required]],
-      endereco: [data?.medico?.endereco, [Validators.required]],
+      cep: [data?.endereco?.cep, [Validators.required]],
+      cidade: [data?.endereco?.cidade, [Validators.required]],
+      estado: [data?.endereco?.estado, [Validators.required]],
+      logradouro: [data?.endereco?.logradouro, [Validators.required]],
       pacientes: [data?.medico?.pacientes]
     })
   }
@@ -78,6 +85,21 @@ export class CadastrarEditarMedicosComponent {
           { duration: 2000 }
         )
       })
+  }
+
+  buscarCep(cep: string){
+    this.commomService.buscarViaCep(cep).subscribe((data) => {
+      this.preencherEndereco(data)
+    })
+  }
+
+  preencherEndereco(data){
+    this.form.patchValue({
+      cidade: data.cidade,
+      estado: data.uf,
+      logradouro: data.logradouro,
+      endereco: data.endereco
+    })
   }
 
   private montarBody() {
