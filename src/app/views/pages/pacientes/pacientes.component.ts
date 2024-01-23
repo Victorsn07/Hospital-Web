@@ -45,6 +45,7 @@ export class PacientesComponent implements OnInit {
     this.pacientesService.buscarPacientes().subscribe(
       (response) => {
         this.todosPacientes = response;
+        console.log(response);
         this.dataSource = new MatTableDataSource<Paciente>(
           this.todosPacientes
         );
