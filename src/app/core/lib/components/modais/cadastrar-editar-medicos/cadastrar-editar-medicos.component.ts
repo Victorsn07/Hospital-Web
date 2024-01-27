@@ -34,10 +34,10 @@ export class CadastrarEditarMedicosComponent {
       nomeMedico: [data?.medico?.nomeMedico, [Validators.required]],
       numeroCRM: [data?.medico?.numeroCRM, [Validators.required]],
       especializacao: [data?.medico?.especializacao, [Validators.required]],
-      cep: [data?.endereco?.cep, [Validators.required]],
-      cidade: [data?.endereco?.cidade, [Validators.required]],
-      estado: [data?.endereco?.estado, [Validators.required]],
-      logradouro: [data?.endereco?.logradouro, [Validators.required]],
+      // cep: [data?.endereco?.cep, [Validators.required]],
+      // cidade: [data?.endereco?.cidade, [Validators.required]],
+      // estado: [data?.endereco?.estado, [Validators.required]],
+      // logradouro: [data?.endereco?.logradouro, [Validators.required]],
       pacientes: [data?.medico?.pacientes]
     })
   }
@@ -95,10 +95,10 @@ export class CadastrarEditarMedicosComponent {
 
   preencherEndereco(data){
     this.form.patchValue({
-      cidade: data.cidade,
-      estado: data.uf,
-      logradouro: data.logradouro,
-      endereco: data.endereco
+      // cidade: data.cidade,
+      // estado: data.uf,
+      // logradouro: data.logradouro,
+      // endereco: data.endereco
     })
   }
 

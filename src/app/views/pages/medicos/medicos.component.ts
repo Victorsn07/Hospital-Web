@@ -22,7 +22,7 @@ export class MedicosComponent implements OnInit {
       'numeroCRM',
       'nomeMedico',
       'especializacao',
-      'endereco',
+      // 'endereco',
       'pacientes',
       'icon'
     ];
